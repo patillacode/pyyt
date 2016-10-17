@@ -25,7 +25,7 @@ Thanks to [rg3](https://github.com/rg3) and everyone that contributed.
 
 * Create a virtual environment ([mkvirtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/)):
 
-```mkvirtualenv tiltometer```
+```mkvirtualenv pyyt```
 
 * Activate the virtualenv:
 ```workon pyyt```
