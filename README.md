@@ -1,5 +1,5 @@
 # pyyt
-Python script to download all videos from a given youtube playlist
+Python script to download all videos as audio from a given youtube playlist
 
 
 ### Attribution ###
@@ -37,4 +37,4 @@ Thanks to [rg3](https://github.com/rg3) and everyone that contributed.
 ------------
 
 ### Usage
-* Run `python application.py`
+* Run `python pyyt.py`
