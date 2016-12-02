@@ -10,6 +10,7 @@ import json
 import logging
 import subprocess
 import sys
+import urlparse
 
 logging.basicConfig(stream=sys.stdout,
                     level=logging.DEBUG,
@@ -37,25 +38,25 @@ def run_command(command):
 
 
 def get_list_of_videos(playlist_url):
+    logging.info('Gathering all videos from playlist...')
     cmd = "youtube-dl -j --flat-playlist '{0}' > yt.txt".format(playlist_url)
     return run_command(cmd)
 
 
-def download_as_audio(video):
-    logging.info('Downloading and converting to audio {0}'.format(
-        video['title']))
+def download_as_audio(video_id):
     cmd = "cd {0}".format(DOWNLOAD_FOLDER)
     run_command(cmd)
     cmd = ("youtube-dl -x --audio-format mp3 -o '{0}%(title)s-%(id)s.%(ext)s' "
            "http://www.youtube.com/watch?v={1}").format(
         DOWNLOAD_FOLDER,
-        video['id'])
+        video_id)
     return run_command(cmd)
 
 
 def main():
     print "Welcome to pyyt - Select your option:\n"
     print "1 - Download an entire playlist as audio\n"
+    print "2 - Download a single video as audio\n"
 
     option = raw_input('Write your selection: ')
 
@@ -64,16 +65,26 @@ def main():
         get_list_of_videos(url)
         for line in open('yt.txt'):
             video = json.loads(line)
-            download_as_audio(video)
+            download_as_audio(video['id'])
             logging.info("#" * 100)
             logging.info("Audio for {} is ready at {}".format(
                 video['title'], DOWNLOAD_FOLDER))
             logging.info("#" * 100)
         logging.info("*" * 100)
-        logging.info("All songs have been downloaded in {}".format(
+        logging.info("All songs have been downloaded into {}".format(
             DOWNLOAD_FOLDER))
         logging.info("*" * 100)
 
+    elif option == '2':
+        url = raw_input('Please insert the youtube video url: ')
+        url_data = urlparse.urlparse(url)
+        query = urlparse.parse_qs(url_data.query)
+        video_id = query["v"][0]
+        download_as_audio(video_id)
+        logging.info("*" * 100)
+        logging.info("Song has been downloaded into {}".format(
+            DOWNLOAD_FOLDER))
+        logging.info("*" * 100)
     else:
         logging.error('Wrong option. Cya!')
 
