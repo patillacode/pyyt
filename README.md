@@ -1,5 +1,5 @@
 # pyyt
-Python script to download all videos as audio from a given youtube playlist
+ - Python script to download all videos as audio from a given youtube playlist
 
 
 ### Attribution ###
