@@ -46,7 +46,8 @@ def get_list_of_videos(playlist_url):
 def download_as_audio(video_id):
     cmd = "cd {0}".format(DOWNLOAD_FOLDER)
     run_command(cmd)
-    cmd = ("youtube-dl -x --audio-format mp3 -o '{0}%(title)s-%(id)s.%(ext)s' "
+    cmd = ("youtube-dl -x --audio-format mp3 -i -o "
+           "'{0}%(title)s-%(id)s.%(ext)s' "
            "http://www.youtube.com/watch?v={1}").format(
         DOWNLOAD_FOLDER,
         video_id)
