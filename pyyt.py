@@ -68,7 +68,7 @@ def main():
             download_as_audio(video['id'])
             logging.info("#" * 100)
             logging.info("Audio for {} is ready at {}".format(
-                video['title'], DOWNLOAD_FOLDER))
+                video['title'].encode('utf-8'), DOWNLOAD_FOLDER))
             logging.info("#" * 100)
         logging.info("*" * 100)
         logging.info("All songs have been downloaded into {}".format(
