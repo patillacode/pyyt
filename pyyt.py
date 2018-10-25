@@ -32,7 +32,7 @@ def run_command(command):
         if p.returncode != 0:
             logging.error(err)
             logging.error('Problem running command: {0}'.format(command))
-            raise
+            # raise Exception('Yikes: {}'.format(err))
 
         return output
 
