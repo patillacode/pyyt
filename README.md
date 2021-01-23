@@ -1,19 +1,16 @@
 # pyyt
- - -  Python script to download all videos as audio from a given youtube playlist
+Python script to download all videos as audio from a given youtube playlist
 
 
-### Attribution ###
 -------------------
+### Attribution ###
 
 An abstraction of [youtube-dl](https://github.com/rg3/youtube-dl) for my specific use case.
 Thanks to [rg3](https://github.com/rg3) and everyone that contributed.
 
 
 -------------------
-
-
 ### Installation
--------------------
 
 * Clone the repo:
 
@@ -25,16 +22,34 @@ Thanks to [rg3](https://github.com/rg3) and everyone that contributed.
 
 * Create a virtual environment ([mkvirtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/)):
 
-```mkvirtualenv pyyt```
+`python3 -m venv venv`
 
 * Activate the virtualenv:
-```workon pyyt```
+`source venv/bin/activate`
 
 * Install requirements:
 
     * `pip install -r requirements.txt`
 
-------------
+
+---------
 
 ### Usage
 * Run `python pyyt.py`
+
+-----------
+### Example
+
+```bash
+Welcome to pyyt - Select your option:
+
+1 - Download an entire playlist as audio
+
+2 - Download a single video as audio
+
+Write your selection: 1
+Please insert the youtube playlist url: https://www.youtube.com/playlist?list=PLOr27fEnfYc5a6p1auEgwWxGiGbe55rHR
+[youtube:tab] PLOr27fEnfYc5a6p1auEgwWxGiGbe55rHR: Downloading webpage
+[download] Downloading playlist: music10
+...
+```
