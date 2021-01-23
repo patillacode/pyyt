@@ -25,6 +25,8 @@ Thanks to [rg3](https://github.com/rg3) and everyone that contributed.
 ### Usage
 * Run `python pyyt.py`
 
+**Note:** Audio files will be downloaded into the `./downloads` folder
+
 -----------
 ### Example
 
