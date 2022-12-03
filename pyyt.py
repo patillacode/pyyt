@@ -4,8 +4,7 @@ import pathlib
 
 import sys
 
-import youtube_dl
-
+import yt_dlp
 
 ydl_opts = {
     'format': 'bestaudio/best',
@@ -15,15 +14,14 @@ ydl_opts = {
             'preferredcodec': 'mp3',
             'preferredquality': '192',
         },
-        {'key': 'MetadataFromTitle', 'titleformat': '(?P<artist>.*) - (?P<title>.*)'},
     ],
-    'outtmpl': f'{pathlib.Path().absolute()}/downloads/%(title)s.%(ext)s',
+    'outtmpl': f'{pathlib.Path().absolute()}/downloads/music14/%(artist)s - %(title)s.%(ext)s',
     'extract_flat': 'in_playlist',
     'ignoreerrors': True,
     'quiet': False,
     'sleep_interval': 2,
 }
-ydl = youtube_dl.YoutubeDL(ydl_opts)
+ydl = yt_dlp.YoutubeDL(ydl_opts)
 
 
 def get_video_entries(playlist_url):
@@ -35,9 +33,9 @@ def get_video_entries(playlist_url):
     if 'entries' in results:
         entries = results['entries']
         return entries
-    else:
-        print('Something went wrong, no entries in playlist...')
-        sys.exit(2)
+
+    print('Something went wrong, no entries in playlist...')
+    sys.exit(2)
 
 
 def download_and_metadata(video_url):
