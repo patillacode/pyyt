@@ -28,7 +28,8 @@ ydl = youtube_dl.YoutubeDL(ydl_opts)
 
 def get_video_entries(playlist_url):
     results = ydl.extract_info(
-        playlist_url, download=False,  # We just want to extract the info
+        playlist_url,
+        download=False,  # We just want to extract the info
     )
 
     if 'entries' in results:
