@@ -14,7 +14,7 @@ ydl_opts = {
             "preferredquality": "192",
         },
     ],
-    "outtmpl": f"{pathlib.Path().absolute()}/downloads/music15/%(artist)s - %(title)s.%(ext)s",
+    "outtmpl": f"{pathlib.Path().absolute()}/music15/test/%(title)s.%(ext)s",
     "extract_flat": "in_playlist",
     "ignoreerrors": True,
     "quiet": False,
