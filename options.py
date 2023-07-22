@@ -1,3 +1,4 @@
+# Description: This file contains the options for the youtube-dl module.
 ydl_opts = {
     "format": "bestaudio/best",
     "postprocessors": [
@@ -7,7 +8,6 @@ ydl_opts = {
             "preferredquality": "192",
         },
     ],
-    "outtmpl": f"{get_download_folder()}/%(title)s.%(ext)s",
     "ignoreerrors": True,
     "quiet": False,
     "sleep_interval": 2,

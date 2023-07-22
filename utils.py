@@ -45,6 +45,8 @@ def get_video_entries(playlist_url: str) -> List[dict]:
     Returns:
         List[dict]: A list of video entries.
     """
+    ydl_opts["extract_flat"] = "in_playlist"
+    ydl_opts["outtmpl"] = f"{get_download_folder()}/%(title)s.%(ext)s"
     ydl = yt_dlp.YoutubeDL(ydl_opts)
 
     results = ydl.extract_info(
@@ -68,6 +70,7 @@ def download_and_metadata(video_url: str) -> None:
         video_url (str): The URL of the YouTube video.
     """
     # TODO add metadata handling
+    ydl_opts["outtmpl"] = f"{get_download_folder()}/%(title)s.%(ext)s"
     ydl = yt_dlp.YoutubeDL(ydl_opts)
 
     ydl.download([video_url])
