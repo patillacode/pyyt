@@ -51,7 +51,7 @@ def get_video_entries(playlist_url: str) -> List[dict]:
                 "preferredquality": "192",
             },
         ],
-        "outtmpl": f"{pathlib.Path().absolute()}/downloads/%(title)s.%(ext)s",
+        "outtmpl": f"{get_download_folder()}/%(title)s.%(ext)s",
         "extract_flat": "in_playlist",
         "ignoreerrors": True,
         "quiet": False,
@@ -89,7 +89,7 @@ def download_and_metadata(video_url: str) -> None:
                 "preferredquality": "192",
             },
         ],
-        "outtmpl": f"{pathlib.Path().absolute()}/downloads/%(title)s.%(ext)s",
+        "outtmpl": f"{get_download_folder()}/%(title)s.%(ext)s",
         "ignoreerrors": True,
         "quiet": False,
         "sleep_interval": 2,
@@ -109,3 +109,17 @@ def welcome() -> None:
     banner: str = colored(fig.renderText(" PYYT "), "cyan")
     print(banner)
     print()
+
+
+def get_download_folder() -> str:
+    """
+    Get the folder where the files will be downloaded.
+
+    Returns:
+        str: The download folder path.
+    """
+    default_folder = "downloads"
+    folder = input(colored(f"Please enter the download folder (default: {default_folder}): ", "magenta"))
+    if not folder:
+        folder = default_folder
+    return folder
