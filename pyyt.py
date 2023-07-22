@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from termcolor import colored
+from simple_term_menu import TerminalMenu
 from utils import download_and_metadata, get_video_entries
 
 
@@ -8,13 +9,16 @@ def main():
     """
     Main function to run the pyyt script.
     """
-    print(colored("Welcome to pyyt - Select your option:\n", "cyan"))
-    print(colored("1 - Download an entire playlist as audio\n", "cyan"))
-    print(colored("2 - Download a single video as audio\n", "cyan"))
+    welcome_message = colored("Welcome to pyyt - Select your option:\n", "cyan")
+    options = [
+        colored("Download an entire playlist as audio", "cyan"),
+        colored("Download a single video as audio", "cyan"),
+    ]
 
-    option = input(colored("Write your selection: ", "cyan"))
+    terminal_menu = TerminalMenu(options, title=welcome_message)
+    selected_option_index = terminal_menu.show()
 
-    if option == "1":
+    if selected_option_index == 0:
         playlist_url = input(colored("Please insert the youtube playlist url: ", "cyan"))
         video_entries = get_video_entries(playlist_url)
         video_list = [
@@ -23,7 +27,7 @@ def main():
         for video_url in video_list:
             download_and_metadata(video_url)
 
-    elif option == "2":
+    elif selected_option_index == 1:
         video_url = input(colored("Please insert the youtube video url: ", "cyan"))
         download_and_metadata(video_url)
 
