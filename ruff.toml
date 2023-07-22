@@ -32,12 +32,12 @@ exclude = [
 known-first-party = []
 known-third-party = []
 section-order = [
-	"future",
-	"standard-library",
-	"django",
-	"third-party",
-	"first-party",
-	"local-folder",
+    "future",
+    "standard-library",
+    "django",
+    "third-party",
+    "first-party",
+    "local-folder",
 ]
 combine-as-imports = true
 split-on-trailing-comma = false

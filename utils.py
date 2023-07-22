@@ -1,6 +1,7 @@
 import os
 import pathlib
 import sys
+from typing import List
 
 import yt_dlp
 
@@ -9,15 +10,15 @@ from simple_term_menu import TerminalMenu
 from termcolor import colored
 
 
-def menu(selectable_items: list) -> list:
+def menu(selectable_items: List[str]) -> int:
     """
-    Display a terminal menu and allow the user to select multiple items.
+    Display a terminal menu and allow the user to select an item.
 
     Args:
-        selectable_items (list): The list of items to display in the menu.
+        selectable_items (List[str]): The list of items to display in the menu.
 
     Returns:
-        list: The list of selected items.
+        int: The index of the selected item.
     """
     try:
         terminal_menu: TerminalMenu = TerminalMenu(
@@ -28,10 +29,10 @@ def menu(selectable_items: list) -> list:
         terminal_menu.show()
         return terminal_menu.chosen_menu_index
     except TypeError:
-        raise (KeyboardInterrupt)
+        raise KeyboardInterrupt
 
 
-def get_video_entries(playlist_url):
+def get_video_entries(playlist_url: str) -> List[dict]:
     """
     Get the video entries from a YouTube playlist URL.
 
@@ -39,7 +40,7 @@ def get_video_entries(playlist_url):
         playlist_url (str): The URL of the YouTube playlist.
 
     Returns:
-        list: A list of video entries.
+        List[dict]: A list of video entries.
     """
     ydl_opts = {
         "format": "bestaudio/best",
@@ -71,7 +72,7 @@ def get_video_entries(playlist_url):
     sys.exit(2)
 
 
-def download_and_metadata(video_url):
+def download_and_metadata(video_url: str) -> None:
     """
     Download a video as audio and handle metadata.
 

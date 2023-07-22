@@ -8,11 +8,11 @@ from termcolor import colored
 from utils import download_and_metadata, get_video_entries, menu, welcome
 
 
-def main():
+def main() -> None:
     """
     Main function to run the pyyt script.
     """
-    print(colored(" Select your option:", "cyan"))
+    print(colored("Select your option:", "cyan"))
     options = [
         "Download an entire playlist as audio",
         "Download a single video as audio",
@@ -20,18 +20,14 @@ def main():
     selected_option = menu(options)
 
     if selected_option == 0:
-        playlist_url = input(
-            colored(" Please insert the youtube playlist url: ", "magenta")
-        )
+        playlist_url = input(colored("Please insert the YouTube playlist URL: ", "magenta"))
         video_entries = get_video_entries(playlist_url)
-        video_list = [
-            f'https://www.youtube.com/watch?v={video["id"]}' for video in video_entries
-        ]
+        video_list = [f'https://www.youtube.com/watch?v={video["id"]}' for video in video_entries]
         for video_url in video_list:
             download_and_metadata(video_url)
 
     elif selected_option == 1:
-        video_url = input(colored(" Please insert the youtube video url: ", "magenta"))
+        video_url = input(colored("Please insert the YouTube video URL: ", "magenta"))
         download_and_metadata(video_url)
 
     else:

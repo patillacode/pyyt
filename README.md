@@ -1,5 +1,5 @@
 # pyyt
-Python script to download all videos as audio from a given youtube playlist
+Python script to download all videos as audio from a given YouTube playlist
 
 -------------------
 ### Attribution ###
@@ -38,7 +38,7 @@ Welcome to pyyt - Select your option:
 2 - Download a single video as audio
 
 Write your selection: 1
-Please insert the youtube playlist url: https://www.youtube.com/playlist?list=PLOr27fEnfYc5a6p1auEgwWxGiGbe55rHR
+Please insert the YouTube playlist URL: https://www.youtube.com/playlist?list=PLOr27fEnfYc5a6p1auEgwWxGiGbe55rHR
 [youtube:tab] PLOr27fEnfYc5a6p1auEgwWxGiGbe55rHR: Downloading webpage
 [download] Downloading playlist: music10
 ...
