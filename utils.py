@@ -3,6 +3,7 @@ import pathlib
 import sys
 
 import yt_dlp
+
 from pyfiglet import Figlet
 from simple_term_menu import TerminalMenu
 from termcolor import colored
@@ -25,7 +26,8 @@ def menu(selectable_items: list) -> list:
             show_multi_select_hint=False,
         )
         terminal_menu.show()
-        return list(terminal_menu.chosen_menu_entries)
+        print("so...", terminal_menu.chosen_menu_index)
+        return list(terminal_menu.chosen_menu_index)
     except TypeError:
         raise (KeyboardInterrupt)
 
@@ -106,4 +108,4 @@ def welcome() -> None:
     fig: Figlet = Figlet(font="larry3d")
     banner: str = colored(fig.renderText(" PYYT "), "cyan")
     print(banner)
-    print("-" * 90)
+    print()
