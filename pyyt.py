@@ -20,9 +20,13 @@ def main() -> None:
     selected_option = menu(options)
 
     if selected_option == 0:
-        playlist_url = input(colored("Please insert the YouTube playlist URL: ", "magenta"))
+        playlist_url = input(
+            colored("Please insert the YouTube playlist URL: ", "magenta")
+        )
         video_entries = get_video_entries(playlist_url)
-        video_list = [f'https://www.youtube.com/watch?v={video["id"]}' for video in video_entries]
+        video_list = [
+            f'https://www.youtube.com/watch?v={video["id"]}' for video in video_entries
+        ]
         for video_url in video_list:
             download_and_metadata(video_url)
 

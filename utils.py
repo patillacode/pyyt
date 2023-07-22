@@ -1,6 +1,7 @@
 import os
 import pathlib
 import sys
+
 from typing import List
 
 import yt_dlp
@@ -119,7 +120,11 @@ def get_download_folder() -> str:
         str: The download folder path.
     """
     default_folder = "downloads"
-    folder = input(colored(f"Please enter the download folder (default: {default_folder}): ", "magenta"))
+    folder = input(
+        colored(
+            f"Please enter the download folder (default: {default_folder}): ", "magenta"
+        )
+    )
     if not folder:
         folder = default_folder
     return folder
