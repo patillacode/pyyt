@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 import sys
 import traceback
 
-from simple_term_menu import TerminalMenu
 from termcolor import colored
 
 from utils import download_and_metadata, get_video_entries, menu, welcome
@@ -13,20 +12,17 @@ def main():
     """
     Main function to run the pyyt script.
     """
-    print(colored("Welcome to pyyt - Select your option:\n", "cyan"))
+    print(colored(" Select your option:", "cyan"))
     options = [
         "Download an entire playlist as audio",
         "Download a single video as audio",
     ]
-    print("lol")
     selected_option = menu(options)
-    import ipdb
-
-    ipdb.set_trace()
-    print("wtf", selected_option)
 
     if selected_option == 0:
-        playlist_url = input(colored("Please insert the youtube playlist url: ", "cyan"))
+        playlist_url = input(
+            colored(" Please insert the youtube playlist url: ", "magenta")
+        )
         video_entries = get_video_entries(playlist_url)
         video_list = [
             f'https://www.youtube.com/watch?v={video["id"]}' for video in video_entries
@@ -35,7 +31,7 @@ def main():
             download_and_metadata(video_url)
 
     elif selected_option == 1:
-        video_url = input(colored("Please insert the youtube video url: ", "cyan"))
+        video_url = input(colored(" Please insert the youtube video url: ", "magenta"))
         download_and_metadata(video_url)
 
     else:

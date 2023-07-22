@@ -26,8 +26,7 @@ def menu(selectable_items: list) -> list:
             show_multi_select_hint=False,
         )
         terminal_menu.show()
-        print("so...", terminal_menu.chosen_menu_index)
-        return list(terminal_menu.chosen_menu_index)
+        return terminal_menu.chosen_menu_index
     except TypeError:
         raise (KeyboardInterrupt)
 
