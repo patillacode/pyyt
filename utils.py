@@ -122,7 +122,7 @@ def get_download_folder() -> str:
     default_folder = f"{pathlib.Path().absolute()}/downloads/"
     folder = input(
         colored(
-            f"Please enter the download folder (default: {default_folder}): ", "magenta"
+            f"Please enter the download folder (default: {colored(default_folder, 'cyan')}): ", "magenta"
         )
     )
     if not folder:
