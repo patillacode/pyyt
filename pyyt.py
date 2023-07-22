@@ -1,10 +1,6 @@
 from __future__ import unicode_literals
 
-import pathlib
-import sys
-
-import yt_dlp
-from utils import get_video_entries, download_and_metadata
+from utils import download_and_metadata, get_video_entries
 
 
 def main():
