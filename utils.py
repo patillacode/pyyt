@@ -10,6 +10,8 @@ from pyfiglet import Figlet
 from simple_term_menu import TerminalMenu
 from termcolor import colored
 
+from options import ydl_opts
+
 
 def menu(selectable_items: List[str]) -> int:
     """
@@ -43,21 +45,6 @@ def get_video_entries(playlist_url: str) -> List[dict]:
     Returns:
         List[dict]: A list of video entries.
     """
-    ydl_opts = {
-        "format": "bestaudio/best",
-        "postprocessors": [
-            {
-                "key": "FFmpegExtractAudio",
-                "preferredcodec": "mp3",
-                "preferredquality": "192",
-            },
-        ],
-        "outtmpl": f"{get_download_folder()}/%(title)s.%(ext)s",
-        "extract_flat": "in_playlist",
-        "ignoreerrors": True,
-        "quiet": False,
-        "sleep_interval": 2,
-    }
     ydl = yt_dlp.YoutubeDL(ydl_opts)
 
     results = ydl.extract_info(
@@ -81,20 +68,6 @@ def download_and_metadata(video_url: str) -> None:
         video_url (str): The URL of the YouTube video.
     """
     # TODO add metadata handling
-    ydl_opts = {
-        "format": "bestaudio/best",
-        "postprocessors": [
-            {
-                "key": "FFmpegExtractAudio",
-                "preferredcodec": "mp3",
-                "preferredquality": "192",
-            },
-        ],
-        "outtmpl": f"{get_download_folder()}/%(title)s.%(ext)s",
-        "ignoreerrors": True,
-        "quiet": False,
-        "sleep_interval": 2,
-    }
     ydl = yt_dlp.YoutubeDL(ydl_opts)
 
     ydl.download([video_url])
