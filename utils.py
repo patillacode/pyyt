@@ -95,7 +95,8 @@ def get_download_folder() -> str:
     Returns:
         str: The download folder path.
     """
-    default_folder = colored(f"{pathlib.Path().absolute()}/downloads/", "cyan")
+    default_folder = f"{pathlib.Path().absolute()}/downloads/"
+    default_folder_message = colored(default_folder, "cyan")
 
     message_prefix: str = colored(
         "Please enter the download folder (default: ",
@@ -103,7 +104,7 @@ def get_download_folder() -> str:
     )
     message_suffix: str = colored("): ", "magenta")
 
-    folder = input(f"{message_prefix}{default_folder}{message_suffix}")
+    folder = input(f"{message_prefix}{default_folder_message}{message_suffix}")
     if not folder:
         folder = default_folder
     return folder
