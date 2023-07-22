@@ -89,3 +89,4 @@ ENV/
 
 # Aux files
 yt.txt
+.aider*
