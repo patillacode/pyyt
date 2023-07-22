@@ -81,14 +81,6 @@ def welcome() -> None:
     os.system("clear")
     # lean isometric poison alligator
     fig: Figlet = Figlet(font="larry3d")
-    banner: str = colored(fig.renderText(" CP2TOTO "), "cyan")
+    banner: str = colored(fig.renderText(" PYYT "), "cyan")
     print(banner)
-
-    welcome_text: str = colored(
-        "\nPlease select the files/folders you want to copy to totoro: (SPACE to select, "
-        "UP/DOWN to move, ENTER to continue)\n",
-        "red",
-        attrs=["bold"],
-    )
-    print(welcome_text)
     print("-" * 90)
