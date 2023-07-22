@@ -1,7 +1,10 @@
+import os
 import pathlib
 import sys
 
 import yt_dlp
+from pyfiglet import Figlet
+from termcolor import colored
 
 
 def get_video_entries(playlist_url):
@@ -69,3 +72,23 @@ def download_and_metadata(video_url):
     ydl = yt_dlp.YoutubeDL(ydl_opts)
 
     ydl.download([video_url])
+
+
+def welcome() -> None:
+    """
+    Display a welcome message and banner.
+    """
+    os.system("clear")
+    # lean isometric poison alligator
+    fig: Figlet = Figlet(font="larry3d")
+    banner: str = colored(fig.renderText(" CP2TOTO "), "cyan")
+    print(banner)
+
+    welcome_text: str = colored(
+        "\nPlease select the files/folders you want to copy to totoro: (SPACE to select, "
+        "UP/DOWN to move, ENTER to continue)\n",
+        "red",
+        attrs=["bold"],
+    )
+    print(welcome_text)
+    print("-" * 90)
