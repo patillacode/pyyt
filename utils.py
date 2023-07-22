@@ -4,7 +4,30 @@ import sys
 
 import yt_dlp
 from pyfiglet import Figlet
+from simple_term_menu import TerminalMenu
 from termcolor import colored
+
+
+def menu(selectable_items: list) -> list:
+    """
+    Display a terminal menu and allow the user to select multiple items.
+
+    Args:
+        selectable_items (list): The list of items to display in the menu.
+
+    Returns:
+        list: The list of selected items.
+    """
+    try:
+        terminal_menu: TerminalMenu = TerminalMenu(
+            selectable_items,
+            multi_select=False,
+            show_multi_select_hint=False,
+        )
+        terminal_menu.show()
+        return list(terminal_menu.chosen_menu_entries)
+    except TypeError:
+        raise (KeyboardInterrupt)
 
 
 def get_video_entries(playlist_url):
