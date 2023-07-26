@@ -30,7 +30,7 @@ class RunTests(Command):
 
 setup(
     name="pyyt-cli",
-    version="0.1.4",
+    version="0.1.5",
     description=(
         "Python script to download videos as audio from a given YouTube playlist/video"
     ),
