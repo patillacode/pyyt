@@ -10,7 +10,7 @@ from pyfiglet import Figlet
 from simple_term_menu import TerminalMenu
 from termcolor import colored
 
-from options import ydl_opts
+from .options import ydl_opts
 
 
 def menu(selectable_items: List[str]) -> int:
