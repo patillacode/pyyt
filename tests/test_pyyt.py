@@ -3,7 +3,7 @@ import unittest
 from io import StringIO
 from unittest.mock import patch
 
-from pyyt import main
+from ..pyyt import main
 
 
 class TestPyyt(unittest.TestCase):
