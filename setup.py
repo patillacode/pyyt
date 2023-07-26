@@ -30,7 +30,7 @@ class RunTests(Command):
 
 setup(
     name="pyyt-cli",
-    version="0.1.2",
+    version="0.1.3",
     description="Python script to download videos as audio from a given YouTube playlist/video",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -48,7 +48,7 @@ setup(
     ],
     keywords="converter, audio, youtube, download, mp3",
     packages=find_packages(exclude=["docs", "tests*", "downloads", "examples"]),
-    install_requires=["pyfiglet", "fsimple-term-menu", "yt-dlp", "termcolor"],
+    install_requires=["pyfiglet", "simple-term-menu", "yt-dlp", "termcolor"],
     extras_require={
         "test": ["coverage", "pytest", "pytest-cov", "mock"],
     },

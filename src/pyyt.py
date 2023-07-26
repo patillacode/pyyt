@@ -5,7 +5,7 @@ import traceback
 
 from termcolor import colored
 
-from utils import download_and_metadata, get_video_entries, menu, welcome
+from .utils import download_and_metadata, get_video_entries, menu, welcome
 
 
 def main() -> None:
