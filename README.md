@@ -1,3 +1,5 @@
+[![Downloads](https://pepy.tech/badge/pyyt-cli)](https://pepy.tech/project/pyyt-cli)
+
 # pyyt
 Python interactive script to download videos as audio from a given YouTube playlist or a single video url
 
