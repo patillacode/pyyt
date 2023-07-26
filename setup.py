@@ -30,8 +30,10 @@ class RunTests(Command):
 
 setup(
     name="pyyt-cli",
-    version="0.1.3",
-    description="Python script to download videos as audio from a given YouTube playlist/video",
+    version="0.1.4",
+    description=(
+        "Python script to download videos as audio from a given YouTube playlist/video"
+    ),
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/patillacode/pyyt",
