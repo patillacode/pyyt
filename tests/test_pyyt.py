@@ -3,7 +3,7 @@ import unittest
 from io import StringIO
 from unittest.mock import patch
 
-from pyyt.src.pyyt import main
+from src.pyyt import main
 
 
 class TestPyyt(unittest.TestCase):
@@ -19,8 +19,8 @@ class TestPyyt(unittest.TestCase):
             self.assertIn("Please insert the YouTube video URL:", output)
             self.assertIn("Wrong option. Cya!", output)
 
-    @patch("pyyt.src.get_video_entries")
-    @patch("pyyt.src.download_and_metadata")
+    @patch("src.get_video_entries")
+    @patch("src.download_and_metadata")
     def test_main_download_playlist(
         self, mock_download_and_metadata, mock_get_video_entries
     ):
@@ -41,7 +41,7 @@ class TestPyyt(unittest.TestCase):
                 "https://www.youtube.com/watch?v=video3"
             )
 
-    @patch("pyyt.src.download_and_metadata")
+    @patch("src.download_and_metadata")
     def test_main_download_single_video(self, mock_download_and_metadata):
         with patch("builtins.input", side_effect=["1", "video_url", "n"]):
             main()
