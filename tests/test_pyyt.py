@@ -1,9 +1,8 @@
 import unittest
-
 from io import StringIO
 from unittest.mock import patch
 
-from ..pyyt import main
+from pyyt import main
 
 
 class TestPyyt(unittest.TestCase):
@@ -50,7 +49,7 @@ class TestPyyt(unittest.TestCase):
     @patch("sys.exit")
     def test_get_video_entries_no_entries(self, mock_exit):
         with patch("builtins.print") as mock_print:
-            get_video_entries("playlist_url")
+            main.get_video_entries("playlist_url")
             mock_print.assert_called_with(
                 "Something went wrong, no entries in playlist..."
             )
