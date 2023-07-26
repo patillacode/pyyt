@@ -1,12 +1,15 @@
 import unittest
-from unittest.mock import patch
+
 from io import StringIO
+from unittest.mock import patch
 
 from pyyt import main
 
 
 class TestPyyt(unittest.TestCase):
-    @patch("builtins.input", side_effect=["0", "playlist_url", "n", "1", "video_url", "n"])
+    @patch(
+        "builtins.input", side_effect=["0", "playlist_url", "n", "1", "video_url", "n"]
+    )
     def test_main(self, mock_input):
         with patch("sys.stdout", new=StringIO()) as fake_output:
             main()
@@ -18,7 +21,9 @@ class TestPyyt(unittest.TestCase):
 
     @patch("pyyt.get_video_entries")
     @patch("pyyt.download_and_metadata")
-    def test_main_download_playlist(self, mock_download_and_metadata, mock_get_video_entries):
+    def test_main_download_playlist(
+        self, mock_download_and_metadata, mock_get_video_entries
+    ):
         mock_get_video_entries.return_value = [
             {"id": "video1"},
             {"id": "video2"},
@@ -26,9 +31,15 @@ class TestPyyt(unittest.TestCase):
         ]
         with patch("builtins.input", side_effect=["0", "playlist_url", "n"]):
             main()
-            mock_download_and_metadata.assert_called_with("https://www.youtube.com/watch?v=video1")
-            mock_download_and_metadata.assert_called_with("https://www.youtube.com/watch?v=video2")
-            mock_download_and_metadata.assert_called_with("https://www.youtube.com/watch?v=video3")
+            mock_download_and_metadata.assert_called_with(
+                "https://www.youtube.com/watch?v=video1"
+            )
+            mock_download_and_metadata.assert_called_with(
+                "https://www.youtube.com/watch?v=video2"
+            )
+            mock_download_and_metadata.assert_called_with(
+                "https://www.youtube.com/watch?v=video3"
+            )
 
     @patch("pyyt.download_and_metadata")
     def test_main_download_single_video(self, mock_download_and_metadata):
@@ -40,7 +51,9 @@ class TestPyyt(unittest.TestCase):
     def test_get_video_entries_no_entries(self, mock_exit):
         with patch("builtins.print") as mock_print:
             get_video_entries("playlist_url")
-            mock_print.assert_called_with("Something went wrong, no entries in playlist...")
+            mock_print.assert_called_with(
+                "Something went wrong, no entries in playlist..."
+            )
             mock_exit.assert_called_with(2)
 
 
