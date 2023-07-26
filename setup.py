@@ -29,8 +29,8 @@ class RunTests(Command):
 
 
 setup(
-    name="pyytest",
-    version="0.0.16",
+    name="pyyt-cli",
+    version="0.1.2",
     description="Python script to download videos as audio from a given YouTube playlist/video",
     long_description=long_description,
     long_description_content_type="text/markdown",
