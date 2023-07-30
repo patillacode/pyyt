@@ -27,12 +27,11 @@ def main() -> None:
         video_list = [
             f'https://www.youtube.com/watch?v={video["id"]}' for video in video_entries
         ]
-        for video_url in video_list:
-            download_and_metadata(video_url)
+        download_and_metadata(video_list)
 
     elif selected_option == 1:
         video_url = input(colored("Please insert the YouTube video URL: ", "magenta"))
-        download_and_metadata(video_url)
+        download_and_metadata([video_url])
 
     else:
         print(colored("Wrong option. Cya!", "magenta"))

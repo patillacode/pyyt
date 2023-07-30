@@ -17,7 +17,7 @@ help:
 pypi-reset:
 	rm -rf dist && \
 	python3 -m build && \
-	python3 -m twine upload --repository testpypi dist/*
+	twine upload dist/*
 
 python-install:
 	python3 -m venv venv && \
