@@ -70,7 +70,7 @@ def download_and_metadata(video_urls: list) -> None:
         video_url (list): The URLs of the YouTube videos.
     """
     # TODO add metadata handling
-    ydl_opts["outtmpl"] = f"{get_download_folder()}/%(title)s.%(ext)s"
+    ydl_opts["outtmpl"] = f"{get_download_folder()}%(title)s.%(ext)s"
     ydl = yt_dlp.YoutubeDL(ydl_opts)
 
     for video in video_urls:
