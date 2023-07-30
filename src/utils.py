@@ -67,13 +67,14 @@ def download_and_metadata(video_urls: list) -> None:
     Download a video as audio and handle metadata.
 
     Args:
-        video_url (list): The URL of the YouTube video.
+        video_url (list): The URLs of the YouTube videos.
     """
     # TODO add metadata handling
     ydl_opts["outtmpl"] = f"{get_download_folder()}/%(title)s.%(ext)s"
     ydl = yt_dlp.YoutubeDL(ydl_opts)
 
-    ydl.download(video_urls)
+    for video in video_urls:
+        ydl.download([video])
 
 
 def welcome() -> None:
